@@ -1,10 +1,71 @@
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-image: url('./assets/cold-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.4 ease-out;
 }
+
+.App-warm {
+  text-align: center;
+  background-image: url('./assets/warm-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.4 ease-out;
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba( 0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 25px;
+}
+
+.search-box {
+  width: 100%;
+  margin: 0 0 50px
+}
+
+.search-box .search-bar {
+  display: block;
+  width: 90%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+
+  background-color: whitesmoke;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  transition: 0.4 ease;
+}
+
+.location-box {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight:500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 0, 0.)
+}
+
+.location-box .date {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  font-style: italic;
+  text-shadow: 3px 3px rgba(50, 50, 0, 0.)
+}
+
+.weather-box .temp {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+
+
+
+
+
 
 
 

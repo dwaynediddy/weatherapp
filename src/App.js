@@ -3,6 +3,7 @@ import './App.css'
 import dateBuilder from './dateBuilder'
 
 const api = {
+  //got my api key and the baseUrl of the api
   key: '47c14f3735949f7eeafc6f7529fa9b61',
   baseUrl: 'https://api.openweathermap.org/data/2.5/'
 }
@@ -12,6 +13,10 @@ function App() {
 
   const search =evt => {
     if (evt.key === "Enter") {
+
+      // see screen shot, baseurl object and key added from api function here
+      //taking baseurl and adding my personal api key at the end
+      //the query state can be changed so i bring back the results when called
       fetch(`${api.baseUrl}weather?q=${query}&appid=${api.key}`)
       .then(res => res.json())
       .then(result => {
@@ -38,13 +43,15 @@ function App() {
         </div>
         {(typeof weather.main != "undefined") ?  (
           <div>
-            <div className="date">{dateBuilder(new Date())}</div>
               <div className="location-box">
+            <div className="date">{dateBuilder(new Date())}</div>
               {weather.name}, {weather.sys.country}
-              </div>
+            </div>
             <div className="weather-box">
               <div className="temp">
-              {Math.round(weather.main.temp)}°kelvin(whatevertf that is), {weather.weather[0].description}
+                {/* figure out how to turn kelvin into c or find celcius */}
+                <br></br>
+              {Math.round(weather.main.temp)}°kelvin, {weather.weather[0].description}
               </div>
             </div>
           </div>
