@@ -51,8 +51,11 @@ function App() {
               <div className="temp">
                 {/* figure out how to turn kelvin into c or find celcius */}
                 <br></br>
-              {Math.round(weather.main.temp)}°kelvin, {weather.weather[0].description}
+                {Math.round(weather.main.temp)}°kelvin
               </div>
+            </div>
+            <div className="description">
+               {weather.weather[0].description}
             </div>
           </div>
         ) : ('')}
