@@ -29,7 +29,12 @@ function App() {
 
   <dateBuilder />
   return (
-    <div className="App">
+    <div className={
+      (typeof weather.main != 'undefined') 
+    ? ((weather.main.temp > 290) 
+    ? 'App-warm' : 'App') 
+    : 'App'}
+    >
       <main>
         <div className="search-box">
           <input
