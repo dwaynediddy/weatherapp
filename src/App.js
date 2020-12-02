@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import dateBuilder from './dateBuilder'
 
 const api = {
   key: '47c14f3735949f7eeafc6f7529fa9b61',
-  baseUrl: 'https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={47c14f3735949f7eeafc6f7529fa9b61}'
+  baseUrl: 'https://api.openweathermap.org/data/2.5/'
 }
 function App() {
-  const dateBuilder = (d) => {
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+  const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState({});
 
-    let day = days[d.getDay()]
-    let date = d.getDate()
-    let month = months[d.getMonth()]
-    let year = d.getFullYear()
-
-    return `${day} ${date} ${month} ${year}`
+  const search =evt => {
+    if (evt.key === "Enter") {
+      fetch(`${api.baseUrl}weather?q=${query}&appid=${api.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeather(result)
+        setQuery('')
+        console.log(weather)
+        })
+    }
   }
+
+  <dateBuilder />
   return (
     <div className="App">
       <main>
@@ -25,12 +31,21 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search"
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
           />
         </div>
+        <div className="date">{dateBuilder(new Date())}</div>
         <div className="location-box">
+          Location
+        </div>
+        <div className="weather-box">
+          20 degrees
+        </div>
+        <div className="temp">
 
         </div>
-        <div className="date">{dateBuilder(new Date())}</div>
       </main>
     </div>
   )
