@@ -17,7 +17,7 @@ function App() {
       .then(result => {
         setWeather(result)
         setQuery('')
-        console.log(weather)
+        console.log(result)
         })
     }
   }
@@ -36,16 +36,19 @@ function App() {
             onKeyPress={search}
           />
         </div>
-        <div className="date">{dateBuilder(new Date())}</div>
-        <div className="location-box">
-          Location
-        </div>
-        <div className="weather-box">
-          20 degrees
-        </div>
-        <div className="temp">
-
-        </div>
+        {(typeof weather.main != "undefined") ?  (
+          <div>
+            <div className="date">{dateBuilder(new Date())}</div>
+              <div className="location-box">
+              {weather.name}, {weather.sys.country}
+              </div>
+            <div className="weather-box">
+              <div className="temp">
+              {Math.round(weather.main.temp)}°kelvin(whatevertf that is), {weather.weather[0].description}
+              </div>
+            </div>
+          </div>
+        ) : ('')}
       </main>
     </div>
   )
