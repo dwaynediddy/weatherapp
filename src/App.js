@@ -71,7 +71,7 @@ function App() {
               <div className="temp">
                 {/* figure out how to turn kelvin into c or find celcius */}
                 <br></br>
-                {Math.round(weather.main.temp)}°K11
+                {Math.round(weather.main.temp)}°K
               </div>
             </div>
             <div className="description">
