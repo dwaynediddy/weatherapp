@@ -11,7 +11,17 @@ function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search =evt => {
+  const submitHandler = evt => {
+    fetch(`${api.baseUrl}weather?q=${query}&appid=${api.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeather(result)
+        setQuery('')
+        console.log(result)
+        })
+  }
+
+  const search = evt => {
     if (evt.key === "Enter") {
 
       // see screen shot, baseurl object and key added from api function here
@@ -31,7 +41,7 @@ function App() {
   return (
     <div className={
       (typeof weather.main != 'undefined') 
-    ? ((weather.main.temp > 290) 
+    ? ((weather.main.temp > 280) 
     ? 'App-warm' : 'App') 
     : 'App'}
     >
@@ -44,7 +54,11 @@ function App() {
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
-          />
+            />
+            <button onClick={submitHandler}>
+              A Button Just For Liv
+            </button>
+
         </div>
         {(typeof weather.main != "undefined") ?  (
           <div>
