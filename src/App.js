@@ -45,6 +45,7 @@ function App() {
     ? 'App-warm' : 'App') 
     : 'App'}
     >
+      <header><h2>Enter your City for the weather Jensen</h2></header>
       <main>
         <div className="search-box">
           <input
@@ -56,7 +57,7 @@ function App() {
             onKeyPress={search}
             />
             <button className="livsButton" onClick={submitHandler}>
-              A Button Just For Livs bitch ass!
+              Search
             </button>
 
         </div>
@@ -70,7 +71,7 @@ function App() {
               <div className="temp">
                 {/* figure out how to turn kelvin into c or find celcius */}
                 <br></br>
-                {Math.round(weather.main.temp)}°kelvin
+                {Math.round(weather.main.temp)}°K11
               </div>
             </div>
             <div className="description">
