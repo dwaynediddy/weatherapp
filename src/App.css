@@ -11,7 +11,7 @@
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  transition: 0.4 ease-out;
+  transition: 0.4s ease-out;
 }
 
 .App-warm {
@@ -19,7 +19,15 @@
   background-image: url('./assets/warm-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  transition: 0.4 ease-out;
+  transition: 0.4s ease-out;
+}
+
+.App-night {
+  text-align: center;
+  background-image: url('./assets/warm-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.4s ease-out;
 }
 
 main {
@@ -43,7 +51,7 @@ main {
   background-color: whitesmoke;
   box-shadow: 0 4px rgba(0, 0, 0, 0.2);
   font-size: 20px;
-  transition: 0.4 ease;
+  transition: 0.4s ease;
 }
 
 .location-box {

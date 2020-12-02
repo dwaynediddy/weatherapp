@@ -55,8 +55,8 @@ function App() {
             value={query}
             onKeyPress={search}
             />
-            <button onClick={submitHandler}>
-              A Button Just For Liv
+            <button className="livsButton" onClick={submitHandler}>
+              A Button Just For Livs bitch ass!
             </button>
 
         </div>
@@ -76,7 +76,16 @@ function App() {
             <div className="description">
                {weather.weather[0].description}
             </div>
-          </div>
+              {/* if greater than sunrise and less than sunset === night time */}
+            <div className={
+              (typeof weather.sys.sunrise > weather.sys.sunrise) 
+              ? ((weather.sys.sunrise > weather.sys.sunrise) 
+              ? 'App-night' : 'App') 
+              : 'App'
+            }
+            ></div>
+            </div>
+            
         ) : ('')}
       </main>
     </div>
